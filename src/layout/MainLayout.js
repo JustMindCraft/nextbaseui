@@ -25,7 +25,7 @@ export default class MainLayout extends Component {
         </Content>
         <Footer>
             <FooterTab>
-            <Button vertical onPress={()=>this.handleFooterItemClick("/")}>
+            <Button vertical onPress={()=>this.handleFooterItemClick("/")} active={this.props.match.path === '/'}>
                 <Icon name="home" />
                 <Text>首页</Text>
             </Button>

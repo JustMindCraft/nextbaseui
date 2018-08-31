@@ -1,2 +1,2 @@
-import { NativeRouter as Router, Route, Link, Switch } from 'react-router-native'
-export {Router, Route, Link, Switch};
+import { NativeRouter as Router, Route, Link, Switch, Redirect } from 'react-router-native'
+export {Router, Route, Link, Switch, Redirect};
