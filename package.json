@@ -32,12 +32,17 @@
   "dependencies": {
     "expo": "^27.0.1",
     "expo-web": "^0.0.12",
+    "firebase": "^5.4.2",
     "native-base": "^2.8.0",
     "react": "16.3.1",
     "react-dom": "16.0.0",
     "react-native": "~0.55.2",
     "react-native-web": "^0.4.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-native": "^4.3.0",
     "webpack": "^3.11.0",
-    "webpack-dev-server": "2.9.4"
+    "webpack-dev-server": "2.9.4",
+    "wilddog": "^2.5.17"
   }
 }

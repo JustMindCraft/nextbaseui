@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
 export default class MainLayout extends Component {
+  handleFooterItemClick = (path) =>{
+    console.log(path);
+    
+    this.props.history.push(path)
+  }
   render() {
     return (
         <Container>
@@ -17,109 +21,18 @@ export default class MainLayout extends Component {
           <Right />
         </Header>
         <Content>
-          <Grid>
-              <Row>
-                <Col><Icon type="FontAwesome" name="home" /></Col>
-                <Col><Icon type="FontAwesome" name="home" /></Col>
-                <Col><Icon type="FontAwesome" name="home" /></Col>
-                <Col><Icon type="FontAwesome" name="home" /></Col>
-
-              </Row>
-              <Row>
-                <Col><Icon type="FontAwesome" name="home" /></Col>
-                <Col><Icon type="FontAwesome" name="home" /></Col>
-                <Col><Icon type="FontAwesome" name="home" /></Col>
-                <Col><Icon type="FontAwesome" name="home" /></Col>
-
-              </Row>
-           
-           
-          </Grid>
-          <Text>123</Text>
-          <Text>123</Text>
-
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-          <Text>123</Text>
-
-         
-          
+          {this.props.children}
         </Content>
         <Footer>
             <FooterTab>
-            <Button vertical>
-              <Icon name="apps" />
-              <Text>Apps</Text>
+            <Button vertical onPress={()=>this.handleFooterItemClick("/")}>
+                <Icon name="home" />
+                <Text>首页</Text>
             </Button>
-            <Button vertical>
-              <Icon name="camera" />
-              <Text>Camera</Text>
-            </Button>
-            <Button vertical active>
-              <Icon active name="navigate" />
-              <Text>Navigate</Text>
-            </Button>
-            <Button vertical>
-              <Icon name="person" />
-              <Text>Contact</Text>
+           
+            <Button vertical onPress={()=>this.handleFooterItemClick("/my")}>
+                <Icon name="person" />
+                <Text>我的</Text>
             </Button>
           </FooterTab>
         </Footer>
