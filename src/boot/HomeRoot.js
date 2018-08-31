@@ -9,6 +9,8 @@ import NoMatch from "../feathers/others/NoMatch";
 import { Router, Switch, Route, Redirect } from "../cross-router";
 import firebase from '../firebase'
 import RegNewUser from "../feathers/sessions/RegNewUser";
+import Contacts from "../feathers/home/Contacts";
+import Appointment from "../feathers/home/Appointment";
 
 export default class HomeRoot extends React.Component{
     constructor(props){
@@ -71,6 +73,8 @@ export default class HomeRoot extends React.Component{
                 <Router>
                 <Switch>
                     <Route exact path="/" component={Home}/>
+                    <Route path="/contacts" component={Contacts}/>
+                    <Route path="/appoints" component={Appointment}/>
                     <PrivateRoute path="/my" component={Personal}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={RegNewUser}/>

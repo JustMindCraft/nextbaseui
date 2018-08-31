@@ -29,8 +29,16 @@ export default class MainLayout extends Component {
                 <Icon name="home" />
                 <Text>首页</Text>
             </Button>
+            <Button vertical onPress={()=>this.handleFooterItemClick("/contacts")} active={this.props.match.path === '/contacts'}>
+                <Icon name="contacts" />
+                <Text>联系人</Text>
+            </Button>
+            <Button vertical onPress={()=>this.handleFooterItemClick("/appoints")} active={this.props.match.path === '/appoints'}>
+                <Icon name="star" />
+                <Text>预约</Text>
+            </Button>
            
-            <Button vertical onPress={()=>this.handleFooterItemClick("/my")}>
+            <Button vertical onPress={()=>this.handleFooterItemClick("/my")} active={this.props.match.path === '/my'}>
                 <Icon name="person" />
                 <Text>我的</Text>
             </Button>
