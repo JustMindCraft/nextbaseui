@@ -1,94 +1,93 @@
-[debug] [2018-09-03T02:42:03.034Z] ----------------------------------------------------------------------
-[debug] [2018-09-03T02:42:03.038Z] Command:       /home/simontao/.nvm/versions/node/v10.6.0/bin/node /home/simontao/.nvm/versions/node/v10.6.0/bin/firebase init
-[debug] [2018-09-03T02:42:03.038Z] CLI Version:   4.2.1
-[debug] [2018-09-03T02:42:03.038Z] Platform:      linux
-[debug] [2018-09-03T02:42:03.038Z] Node Version:  v10.6.0
-[debug] [2018-09-03T02:42:03.046Z] Time:          Mon Sep 03 2018 10:42:03 GMT+0800 (GMT+08:00)
-[debug] [2018-09-03T02:42:03.046Z] ----------------------------------------------------------------------
+[debug] [2018-09-03T03:50:43.691Z] ----------------------------------------------------------------------
+[debug] [2018-09-03T03:50:43.694Z] Command:       /home/simontao/.nvm/versions/node/v10.6.0/bin/node /home/simontao/.nvm/versions/node/v10.6.0/bin/firebase deploy
+[debug] [2018-09-03T03:50:43.694Z] CLI Version:   4.2.1
+[debug] [2018-09-03T03:50:43.694Z] Platform:      linux
+[debug] [2018-09-03T03:50:43.694Z] Node Version:  v10.6.0
+[debug] [2018-09-03T03:50:43.703Z] Time:          Mon Sep 03 2018 11:50:43 GMT+0800 (GMT+08:00)
+[debug] [2018-09-03T03:50:43.703Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-09-03T02:42:03.056Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
-[debug] [2018-09-03T02:42:03.056Z] > authorizing via signed-in user
-[info] 
-     ######## #### ########  ######## ########     ###     ######  ########
-     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
-     ######    ##  ########  ######   ########  #########  ######  ######
-     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
-     ##       #### ##     ## ######## ########  ##     ##  ######  ########
-
-You're about to initialize a Firebase project in this directory:
-
-  /home/simontao/nextbaseui
-
-[info] 
-=== Project Setup
-[info] 
-[info] First, let's associate this project directory with a Firebase project.
-[info] You can create multiple project aliases by running firebase use --add, 
-[info] but for now we'll just set up a default project.
-[info] 
-[debug] [2018-09-03T02:42:08.484Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-09-03T02:42:08.484Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
-
-[debug] [2018-09-03T02:42:54.004Z] <<< HTTP RESPONSE 200
-[debug] [2018-09-03T02:42:54.356Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+[debug] [2018-09-03T03:50:43.716Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-03T03:50:43.716Z] > authorizing via signed-in user
+[debug] [2018-09-03T03:50:43.719Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nextbaseui  
  
-[debug] [2018-09-03T02:42:58.085Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-03T03:50:44.848Z] <<< HTTP RESPONSE 200
 [info] 
-=== Database Setup
+[info] === Deploying to 'nextbaseui'...
 [info] 
-[info] Firebase Realtime Database Rules allow you to define how your data should be
-[info] structured and when your data can be read from and written to.
-[info] 
-[info] Skipping overwrite of Database Rules.
-[info] The rules defined in database.rules.json will be published when you do firebase deploy.
-[info] 
-=== Firestore Setup
-[debug] [2018-09-03T03:32:36.685Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-09-03T03:32:36.686Z] > authorizing via signed-in user
-[debug] [2018-09-03T03:32:36.686Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-09-03T03:32:36.686Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[info] i  deploying database, storage, firestore, functions, hosting
+[info] i  database: checking rules syntax...
+[debug] [2018-09-03T03:50:47.473Z] >>> HTTP REQUEST PUT https://nextbaseui.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+[debug] [2018-09-03T03:50:48.400Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database nextbaseui is valid
+[debug] [2018-09-03T03:50:48.403Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/nextbaseui  
+ 
+[debug] [2018-09-03T03:51:54.824Z] <<< HTTP RESPONSE 200
+[info] i  storage: checking storage.rules for compilation errors...
+[debug] [2018-09-03T03:51:54.828Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/nextbaseui:test  
 
-[debug] [2018-09-03T03:33:22.048Z] <<< HTTP RESPONSE 200
-[debug] [2018-09-03T03:33:22.091Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nextbaseui  
- 
-[debug] [2018-09-03T03:33:25.018Z] <<< HTTP RESPONSE 200
-[info] 
-[info] Firestore Security Rules allow you to define how and when to allow
-[info] requests. You can keep these rules in your project directory
-[info] and publish them with firebase deploy.
-[info] 
-[debug] [2018-09-03T03:33:58.762Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/nextbaseui/releases  
- 
-[debug] [2018-09-03T03:34:44.699Z] <<< HTTP RESPONSE 200
-[debug] [2018-09-03T03:34:44.701Z] Found ruleset: projects/nextbaseui/rulesets/cf23dd10-e419-46f3-88b7-1daa40fa8ed1
-[debug] [2018-09-03T03:34:44.702Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/nextbaseui/rulesets/cf23dd10-e419-46f3-88b7-1daa40fa8ed1  
- 
-[debug] [2018-09-03T03:35:30.532Z] <<< HTTP RESPONSE 200
-[info] 
-[info] Firestore indexes allow you to perform complex queries while
-[info] maintaining performance that scales with the size of the result
-[info] set. You can keep index definitions in your project directory
-[info] and publish them with firebase deploy.
-[info] 
-[debug] [2018-09-03T03:35:36.104Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta1/projects/nextbaseui/databases/(default)/indexes  
- 
-[debug] [2018-09-03T03:36:21.470Z] <<< HTTP RESPONSE 200
-[info] 
-=== Functions Setup
-[info] 
-[info] A functions directory will be created in your project with a Node.js
-[info] package pre-configured. Functions can be deployed with firebase deploy.
-[info] 
-[debug] [2018-09-03T03:36:21.473Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-09-03T03:36:21.473Z] > authorizing via signed-in user
-[debug] [2018-09-03T03:36:21.473Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nextbaseui  
- 
-[debug] [2018-09-03T03:36:25.853Z] <<< HTTP RESPONSE 200
-[debug] [2018-09-03T03:36:25.855Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/nextbaseui?updateMask=usageSettings  
+[debug] [2018-09-03T03:53:01.421Z] <<< HTTP RESPONSE 200
+[info] ✔  storage: rules file storage.rules compiled successfully
+[info] i  firestore: checking firestore.rules for compilation errors...
+[debug] [2018-09-03T03:53:01.424Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/nextbaseui:test  
 
-[debug] [2018-09-03T03:36:25.856Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/nextbaseui?updateMask=usageSettings  
+[debug] [2018-09-03T03:54:08.325Z] <<< HTTP RESPONSE 200
+[info] ✔  firestore: rules file firestore.rules compiled successfully
+[debug] [2018-09-03T03:54:08.327Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.3"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-09-03T03:54:08.327Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/nextbaseui?view=CONSUMER_VIEW  
+ 
+[debug] [2018-09-03T03:54:08.328Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/nextbaseui?view=CONSUMER_VIEW  
+ 
+[debug] [2018-09-03T03:55:14.870Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-09-03T03:55:14.883Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-03T03:55:14.884Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/nextbaseui  
+ 
+[debug] [2018-09-03T03:56:21.549Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-03T03:56:21.551Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/574616310147:getServerAppConfig  
+ 
+[debug] [2018-09-03T03:57:28.116Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-03T03:57:28.118Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/nextbaseui/versions  
 
-[debug] [2018-09-03T03:37:32.369Z] <<< HTTP RESPONSE 200
-[debug] [2018-09-03T03:37:32.374Z] <<< HTTP RESPONSE 200
-[info] ✔  Wrote functions/package.json
-[info] ✔  Wrote functions/index.js
+[debug] [2018-09-03T03:58:34.607Z] <<< HTTP RESPONSE 200
+[info] i  storage: uploading rules storage.rules...
+[debug] [2018-09-03T03:58:34.609Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/nextbaseui/rulesets  
+
+[debug] [2018-09-03T03:59:42.271Z] Error: read ECONNRESET
+    at TLSWrap.onread (net.js:659:25)
+[error] 
+[error] Error: Server Error. read ECONNRESET
+[debug] [2018-09-03T04:00:43.170Z] ----------------------------------------------------------------------
+[debug] [2018-09-03T04:00:43.173Z] Command:       /home/simontao/.nvm/versions/node/v10.6.0/bin/node /home/simontao/.nvm/versions/node/v10.6.0/bin/firebase deploy
+[debug] [2018-09-03T04:00:43.173Z] CLI Version:   4.2.1
+[debug] [2018-09-03T04:00:43.174Z] Platform:      linux
+[debug] [2018-09-03T04:00:43.174Z] Node Version:  v10.6.0
+[debug] [2018-09-03T04:00:43.182Z] Time:          Mon Sep 03 2018 12:00:43 GMT+0800 (GMT+08:00)
+[debug] [2018-09-03T04:00:43.182Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-09-03T04:00:43.195Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-03T04:00:43.195Z] > authorizing via signed-in user
+[debug] [2018-09-03T04:00:43.198Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nextbaseui  
+ 
+[debug] [2018-09-03T04:00:45.166Z] <<< HTTP RESPONSE 200
