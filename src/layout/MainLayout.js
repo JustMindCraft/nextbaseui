@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 import MediaQuery from "../components/media-query";
+import {ThemeContext, themes} from '../contexts/BmobUser.js';
+
 export default class MainLayout extends Component {
   handleFooterItemClick = (path) =>{
     console.log(path);

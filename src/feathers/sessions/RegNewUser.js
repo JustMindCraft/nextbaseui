@@ -126,8 +126,19 @@ export default class RegNewUser extends React.Component{
             <BackLayout history={ this.props.history} match={this.props.match}>
             <Form style={{padding: "11%"}}>
                 <Item stackedLabel>
-                <Label>邮箱</Label>
-                <Input editable={!loading} keyboardType="email-address" textContentType="emailAddress" email={true}  placeholder='输入您的邮箱' onChangeText={text => this.handleInputChange(text, 'email')}/>
+                <Label>手机号</Label>
+                <Input editable={!loading} keyboardType="email-address" textContentType="emailAddress" email={true}  placeholder='手机号' onChangeText={text => this.handleInputChange(text, 'email')}/>
+                </Item>
+                <Item stackedLabel style={{display: "flex", flexDirection: "row"}}>
+                        
+                        <Input editable={!loading} onChangeText={text => this.handleInputChange(text, 'password')} textContentType="password" secureTextEntry={true} placeholder='输入手机验证码' password={true} />
+                        <Button>
+                         <Text>获取验证码</Text>
+                        </Button>
+                </Item>
+                <Item stackedLabel>
+                <Label>用户名</Label>
+                <Input editable={!loading} keyboardType="email-address" textContentType="emailAddress" email={true}  placeholder='用户名' onChangeText={text => this.handleInputChange(text, 'email')}/>
                 </Item>
                 <Item stackedLabel last>
                     <Label>密码</Label>

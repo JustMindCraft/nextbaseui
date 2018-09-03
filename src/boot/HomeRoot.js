@@ -12,13 +12,13 @@ import RegNewUser from "../feathers/sessions/RegNewUser";
 import Contacts from "../feathers/home/Contacts";
 import Appointment from "../feathers/home/Appointment";
 import WebShow from '../components/web-show';
-
 export default class HomeRoot extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             logined: false,
             ready: false,
+            currentUser: {},
         }
        
     }
@@ -74,7 +74,12 @@ export default class HomeRoot extends React.Component{
               }
             />
           );
+
+         
+          
         return (
+            
+
             <Root>  
                 <Router>
                 <Switch>
@@ -94,6 +99,7 @@ export default class HomeRoot extends React.Component{
                 </View>
                
             </Root>
+            
         )
     }
 }
