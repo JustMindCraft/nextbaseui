@@ -33,3 +33,62 @@ You're about to initialize a Firebase project in this directory:
 [debug] [2018-09-03T02:42:54.356Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
  
 [debug] [2018-09-03T02:42:58.085Z] <<< HTTP RESPONSE 200
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[info] Skipping overwrite of Database Rules.
+[info] The rules defined in database.rules.json will be published when you do firebase deploy.
+[info] 
+=== Firestore Setup
+[debug] [2018-09-03T03:32:36.685Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-03T03:32:36.686Z] > authorizing via signed-in user
+[debug] [2018-09-03T03:32:36.686Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-09-03T03:32:36.686Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-09-03T03:33:22.048Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-03T03:33:22.091Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nextbaseui  
+ 
+[debug] [2018-09-03T03:33:25.018Z] <<< HTTP RESPONSE 200
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2018-09-03T03:33:58.762Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/nextbaseui/releases  
+ 
+[debug] [2018-09-03T03:34:44.699Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-03T03:34:44.701Z] Found ruleset: projects/nextbaseui/rulesets/cf23dd10-e419-46f3-88b7-1daa40fa8ed1
+[debug] [2018-09-03T03:34:44.702Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/nextbaseui/rulesets/cf23dd10-e419-46f3-88b7-1daa40fa8ed1  
+ 
+[debug] [2018-09-03T03:35:30.532Z] <<< HTTP RESPONSE 200
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2018-09-03T03:35:36.104Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta1/projects/nextbaseui/databases/(default)/indexes  
+ 
+[debug] [2018-09-03T03:36:21.470Z] <<< HTTP RESPONSE 200
+[info] 
+=== Functions Setup
+[info] 
+[info] A functions directory will be created in your project with a Node.js
+[info] package pre-configured. Functions can be deployed with firebase deploy.
+[info] 
+[debug] [2018-09-03T03:36:21.473Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-03T03:36:21.473Z] > authorizing via signed-in user
+[debug] [2018-09-03T03:36:21.473Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nextbaseui  
+ 
+[debug] [2018-09-03T03:36:25.853Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-03T03:36:25.855Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/nextbaseui?updateMask=usageSettings  
+
+[debug] [2018-09-03T03:36:25.856Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/nextbaseui?updateMask=usageSettings  
+
+[debug] [2018-09-03T03:37:32.369Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-03T03:37:32.374Z] <<< HTTP RESPONSE 200
+[info] ✔  Wrote functions/package.json
+[info] ✔  Wrote functions/index.js
