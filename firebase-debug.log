@@ -29,3 +29,7 @@ You're about to initialize a Firebase project in this directory:
 [debug] [2018-09-03T02:42:08.484Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
 [debug] [2018-09-03T02:42:08.484Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
 
+[debug] [2018-09-03T02:42:54.004Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-03T02:42:54.356Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+ 
+[debug] [2018-09-03T02:42:58.085Z] <<< HTTP RESPONSE 200
