@@ -1,0 +1,31 @@
+[debug] [2018-09-03T02:42:03.034Z] ----------------------------------------------------------------------
+[debug] [2018-09-03T02:42:03.038Z] Command:       /home/simontao/.nvm/versions/node/v10.6.0/bin/node /home/simontao/.nvm/versions/node/v10.6.0/bin/firebase init
+[debug] [2018-09-03T02:42:03.038Z] CLI Version:   4.2.1
+[debug] [2018-09-03T02:42:03.038Z] Platform:      linux
+[debug] [2018-09-03T02:42:03.038Z] Node Version:  v10.6.0
+[debug] [2018-09-03T02:42:03.046Z] Time:          Mon Sep 03 2018 10:42:03 GMT+0800 (GMT+08:00)
+[debug] [2018-09-03T02:42:03.046Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-09-03T02:42:03.056Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-09-03T02:42:03.056Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/simontao/nextbaseui
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2018-09-03T02:42:08.484Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-09-03T02:42:08.484Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Item,Input, Label, Form, Button, Text, View, Toast } from 'native-base';
-import CrossInput from '../../components/CrossInput';
 import BackLayout from '../../layout/BackLayout';
 import { Keyboard } from 'react-native';
 import firebase from '../../firebase';

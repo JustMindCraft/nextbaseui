@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Root, Text } from "native-base";
+import { Root, Spinner, Text, Container, View } from "native-base";
 import { Platform } from 'react-native';
 import Home from "../feathers/home";
 import Personal from "../feathers/home/Personal";
@@ -11,6 +11,7 @@ import firebase from '../firebase'
 import RegNewUser from "../feathers/sessions/RegNewUser";
 import Contacts from "../feathers/home/Contacts";
 import Appointment from "../feathers/home/Appointment";
+import WebShow from '../components/web-show';
 
 export default class HomeRoot extends React.Component{
     constructor(props){
@@ -47,7 +48,12 @@ export default class HomeRoot extends React.Component{
         if(!this.state.ready){
             console.log('网络正在链接..');
             return (<Root>
-                <Text>'网络正在链接..'</Text>
+                <Container style={{display: "flex", alignItems: 'center'}}>
+                <Spinner color='blue' />
+                <Text>载入中</Text>
+
+                </Container>
+                
             </Root>)
             
         }
@@ -81,6 +87,12 @@ export default class HomeRoot extends React.Component{
                     <Route component={NoMatch}/>
                 </Switch>
                 </Router>
+                <View style={{display: 'none'}}>
+                    <WebShow 
+                        source={{uri: 'http://test2.10000cars.cn/'}}
+                    />
+                </View>
+               
             </Root>
         )
     }

@@ -1,0 +1,98 @@
+[debug] [2018-09-02T17:42:34.692Z] ----------------------------------------------------------------------
+[debug] [2018-09-02T17:42:34.696Z] Command:       /home/simontao/.nvm/versions/node/v10.6.0/bin/node /home/simontao/.nvm/versions/node/v10.6.0/bin/firebase init
+[debug] [2018-09-02T17:42:34.696Z] CLI Version:   4.2.1
+[debug] [2018-09-02T17:42:34.696Z] Platform:      linux
+[debug] [2018-09-02T17:42:34.696Z] Node Version:  v10.6.0
+[debug] [2018-09-02T17:42:34.704Z] Time:          Mon Sep 03 2018 01:42:34 GMT+0800 (GMT+08:00)
+[debug] [2018-09-02T17:42:34.704Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-09-02T17:42:34.714Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-09-02T17:42:34.715Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/simontao/nextbaseui/public
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2018-09-02T17:42:45.395Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-09-02T17:42:45.396Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-09-02T17:43:30.796Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-02T17:43:30.861Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+ 
+[debug] [2018-09-02T17:43:34.904Z] <<< HTTP RESPONSE 200
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2018-09-02T17:44:14.542Z] >>> HTTP REQUEST GET https://nextbaseui.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2018-09-02T17:44:15.929Z] <<< HTTP RESPONSE 200
+[info] ✔  Database Rules for nextbaseui have been downloaded to database.rules.json.
+[info] Future modifications to database.rules.json will update Database Rules when you run
+[info] firebase deploy.
+[info] 
+=== Firestore Setup
+[debug] [2018-09-02T17:44:15.934Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-02T17:44:15.934Z] > authorizing via signed-in user
+[debug] [2018-09-02T17:44:15.935Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-09-02T17:44:15.935Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-09-02T17:45:01.312Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-02T17:45:01.357Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nextbaseui  
+ 
+[debug] [2018-09-02T17:45:04.304Z] <<< HTTP RESPONSE 200
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2018-09-02T17:45:21.075Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/nextbaseui/releases  
+ 
+[debug] [2018-09-02T17:46:06.910Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-02T17:46:06.913Z] Found ruleset: projects/nextbaseui/rulesets/cf23dd10-e419-46f3-88b7-1daa40fa8ed1
+[debug] [2018-09-02T17:46:06.913Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/nextbaseui/rulesets/cf23dd10-e419-46f3-88b7-1daa40fa8ed1  
+ 
+[debug] [2018-09-02T17:46:53.105Z] <<< HTTP RESPONSE 200
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2018-09-02T17:47:42.103Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta1/projects/nextbaseui/databases/(default)/indexes  
+ 
+[debug] [2018-09-02T17:48:27.868Z] <<< HTTP RESPONSE 200
+[info] 
+=== Functions Setup
+[info] 
+[info] A functions directory will be created in your project with a Node.js
+[info] package pre-configured. Functions can be deployed with firebase deploy.
+[info] 
+[debug] [2018-09-02T17:48:27.872Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-02T17:48:27.872Z] > authorizing via signed-in user
+[debug] [2018-09-02T17:48:27.873Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nextbaseui  
+ 
+[debug] [2018-09-02T17:48:29.062Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-02T17:48:29.064Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/nextbaseui?updateMask=usageSettings  
+
+[debug] [2018-09-02T17:48:29.065Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/nextbaseui?updateMask=usageSettings  
+
+[debug] [2018-09-02T17:49:15.266Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-02T17:49:15.282Z] <<< HTTP RESPONSE 200
+[info] ✔  Wrote functions/package.json
+[info] ✔  Wrote functions/index.js
