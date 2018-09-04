@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 import MediaQuery from "../components/media-query";
-import {ThemeContext, themes} from '../contexts/BmobUser.js';
-
+import { Platform } from 'react-native';
 export default class MainLayout extends Component {
   handleFooterItemClick = (path) =>{
-    console.log(path);
     
     this.props.history.push(path)
   }
+  componentDidMount(){
+    if(Platform.OS === 'web'){
+      document.getElementById('root').firstChild.lastChild.style.display = 'none'
+    }
+  }
   render() {
+    
     return (
         <Container>
         <Header>
@@ -42,7 +46,7 @@ export default class MainLayout extends Component {
           
           <MediaQuery maxDeviceWidth={767}>
           <Body>
-            <Title>巫力格格</Title>
+            <Title>{this.props.title}</Title>
           </Body>
           </MediaQuery>
          
@@ -75,11 +79,11 @@ export default class MainLayout extends Component {
               </Button>
               <Button vertical onPress={()=>this.handleFooterItemClick("/contacts")} active={this.props.match.path === '/contacts'}>
                   <Icon name="list-box" />
-                  <Text>分类</Text>
+                  <Text>联系人</Text>
               </Button>
               <Button vertical onPress={()=>this.handleFooterItemClick("/appoints")} active={this.props.match.path === '/appoints'}>
                   <Icon name="infinite" />
-                  <Text>后援</Text>
+                  <Text>预约</Text>
               </Button>
             
               <Button vertical onPress={()=>this.handleFooterItemClick("/my")} active={this.props.match.path === '/my'}>

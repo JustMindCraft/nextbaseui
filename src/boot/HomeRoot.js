@@ -7,11 +7,14 @@ import Personal from "../feathers/home/Personal";
 import Login from "../feathers/sessions";
 import NoMatch from "../feathers/others/NoMatch";
 import { Router, Switch, Route, Redirect } from "../cross-router";
-import firebase from '../firebase'
 import RegNewUser from "../feathers/sessions/RegNewUser";
 import Contacts from "../feathers/home/Contacts";
 import Appointment from "../feathers/home/Appointment";
-import WebShow from '../components/web-show';
+import { Provider } from 'react-redux'
+import configureStore from "../redux/store";
+import { User } from '../service/leancloud';
+
+const store = configureStore();
 export default class HomeRoot extends React.Component{
     constructor(props){
         super(props);
@@ -22,27 +25,34 @@ export default class HomeRoot extends React.Component{
         }
        
     }
-    componentDidMount(){
+    async componentDidMount(){
         if(Platform.OS === 'web'){
             document.getElementById('root').firstChild.lastChild.style.display = 'none'
         }
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-              console.log(user);
-              this.setState({
-                  logined: true,
-                  ready: true,
-              })
-            } else {
-                console.log('not logined');
-                
+        let currentUser = await User.currentAsync();
+        if(currentUser){
+            currentUser.isAuthenticated().then(function(authenticated){
+                this.setState({
+                    logined: true,
+                    ready: true,
+                })
+            }).catch(err=>{
                 this.setState({
                     logined: false,
                     ready: true,
                 })
-              
-            }
-          });
+                
+            });
+
+        }else{
+            this.setState({
+                logined: false,
+                ready: true,
+            })
+        }
+        
+        
+       
     }
     render(){
         if(!this.state.ready){
@@ -79,7 +89,7 @@ export default class HomeRoot extends React.Component{
           
         return (
             
-
+            <Provider store={store}>
             <Root>  
                 <Router>
                 <Switch>
@@ -92,13 +102,10 @@ export default class HomeRoot extends React.Component{
                     <Route component={NoMatch}/>
                 </Switch>
                 </Router>
-                <View style={{display: 'none'}}>
-                    <WebShow 
-                        source={{uri: 'http://test2.10000cars.cn/'}}
-                    />
-                </View>
+               
                
             </Root>
+            </Provider>
             
         )
     }
