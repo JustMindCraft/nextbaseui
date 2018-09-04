@@ -25,17 +25,19 @@ export default class HomeRoot extends React.Component{
         }
        
     }
-    async componentDidMount(){
-        if(Platform.OS === 'web'){
-            document.getElementById('root').firstChild.lastChild.style.display = 'none'
-        }
-        let currentUser = await User.currentAsync();
+    checkUser = () => {
+        let currentUser = User.currentAsync();
+        
         if(currentUser){
-            currentUser.isAuthenticated().then(function(authenticated){
-                this.setState({
-                    logined: true,
-                    ready: true,
-                })
+            currentUser.isAuthenticated().then((authenticated) => {
+                console.log(authenticated);
+                if(authenticated){
+                    this.setState({
+                        logined: true,
+                        ready: true,
+                    })
+                }
+               
             }).catch(err=>{
                 this.setState({
                     logined: false,
@@ -50,11 +52,29 @@ export default class HomeRoot extends React.Component{
                 ready: true,
             })
         }
+
+    }
+    async componentDidMount(){
+        if(Platform.OS === 'web'){
+            document.getElementById('root').firstChild.lastChild.style.display = 'none'
+        }
+        
+        this.checkUser();
         
         
        
     }
+
+    componentWillUnmount(){
+        this.setState({
+            logined: false,
+            ready: false,
+            currentUser: {},
+        })
+    }
+
     render(){
+
         if(!this.state.ready){
             console.log('网络正在链接..');
             return (<Root>

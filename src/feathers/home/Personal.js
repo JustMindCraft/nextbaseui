@@ -1,22 +1,39 @@
 import React from 'react';
 import MainLayout from '../../layout/MainLayout';
 import {Card, CardItem, Text, Icon, Right, Thumbnail, Body, Left, Button } from 'native-base';
-
-import firebase from '../../firebase'
+import { User } from '../../service/leancloud';
 
 export default class Personal extends React.Component{
     constructor(props){
         super(props);
-        this.ref = firebase
+        this.user = User;
+        
+    }
+
+    async componentDidMount(){
+        await this.checkUserLogined();
+    }
+    
+    checkUserLogined = async () => {
+        let currentUser = await this.user.currentAsync();
+        if(!currentUser){
+            this.props.history.push('/login')
+        }else{
+            currentUser.isAuthenticated().then((authenticated) => {
+                console.log(authenticated);
+                if(!authenticated){
+                    this.props.history.push('/login')
+                }
+               
+            }).catch(err=>{
+                this.props.history.push('/login')
+                
+            });
+        }
     }
     logout = () =>{
-        this.ref.auth().signOut().then(rlt=>{
-            console.log(rlt);
-            
-        }).catch(err => {
-            console.log(err);
-            
-        })
+        this.user.logOut();
+        this.props.history.push('/login')
     }
     render(){
         return (
