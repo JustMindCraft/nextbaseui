@@ -142,17 +142,48 @@ export default class Login extends React.Component{
         })
 
 
-        User.signUpOrlogInWithMobilePhone(mobile, sms).then( (success) => {
+        User.signUpOrlogInWithMobilePhone(mobile, sms).then( async (success) => {
             if(success){
+                try {
+                    let currentUser = await User.currentAsync();
+                
+                    if(currentUser){
+                        currentUser.isAuthenticated().then((authenticated) => {
+                            console.log(authenticated);
+                            if(authenticated){
+                                this.props.history.push('/my');
+                                this.setState({
+                                    loading: false,
+                                })
+                            }
+                        
+                        }).catch(err=>{
+                            this.setState({
+                                logined: false,
+                                ready: true,
+                            })
+                            
+                        });
+        
+                    }else{
+                        this.setState({
+                            logined: false,
+                            ready: true,
+                        })
+                    }
+                    
+                } catch (error) {
+                    console.log(error);
+                    
+                }
 
-                this.props.history.push('/my');
-                this.setState({
-                    loading: false,
-                })
+                
             }
             
             // 成功
           },  (error) => {
+              console.log(error);
+              
             if(error.toString().includes('无效的手机号码')){
                 this.setState({
                     loading: false,
@@ -164,6 +195,19 @@ export default class Login extends React.Component{
                 });
 
             }
+            if(error.toString().includes('无效的短信验证码')){
+                this.setState({
+                    loading: false,
+                })
+                return Toast.show({
+                    text: '无效的手机验证码',
+                    buttonText: '好的',
+                    position: 'top'
+                });
+
+            }
+
+            
             
           });
         

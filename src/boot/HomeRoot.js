@@ -25,33 +25,40 @@ export default class HomeRoot extends React.Component{
         }
        
     }
-    checkUser = () => {
-        let currentUser = User.currentAsync();
+    checkUser = async () => {
+        try {
+            let currentUser = await User.currentAsync();
         
-        if(currentUser){
-            currentUser.isAuthenticated().then((authenticated) => {
-                console.log(authenticated);
-                if(authenticated){
+            if(currentUser){
+                currentUser.isAuthenticated().then((authenticated) => {
+                    console.log(authenticated);
+                    if(authenticated){
+                        this.setState({
+                            logined: true,
+                            ready: true,
+                        })
+                    }
+                
+                }).catch(err=>{
                     this.setState({
-                        logined: true,
+                        logined: false,
                         ready: true,
                     })
-                }
-               
-            }).catch(err=>{
+                    
+                });
+
+            }else{
                 this.setState({
                     logined: false,
                     ready: true,
                 })
-                
-            });
-
-        }else{
-            this.setState({
-                logined: false,
-                ready: true,
-            })
+            }
+            
+        } catch (error) {
+            console.log(error);
+            
         }
+        
 
     }
     async componentDidMount(){

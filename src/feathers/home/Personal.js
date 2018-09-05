@@ -2,6 +2,7 @@ import React from 'react';
 import MainLayout from '../../layout/MainLayout';
 import {Card, CardItem, Text, Icon, Right, Thumbnail, Body, Left, Button } from 'native-base';
 import { User } from '../../service/leancloud';
+import SwipStatics from '../../components/Personal/SwipStatics';
 
 export default class Personal extends React.Component{
     constructor(props){
@@ -63,6 +64,7 @@ export default class Personal extends React.Component{
                     </Right>
                     </CardItem>
                 </Card>
+                <SwipStatics />
                 <Card>
                         <Button full danger onPress={(e)=>this.logout()}>
                             <Text>安全注销</Text>

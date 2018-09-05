@@ -6,6 +6,7 @@ import getTheme from "../theme/components";
 import variables from "../theme/variables/commonColor";
 import HomeRoot from "./HomeRoot";
 
+
 export default class Setup extends Component {
   constructor() {
     super();

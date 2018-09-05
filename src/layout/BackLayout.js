@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Header, Title, Content, Button, Left, Right, Body, Icon } from 'native-base';
+import { Container, Header, Title, Content, Button, Left, Right, Body, Icon, View } from 'native-base';
+import WebShow from "../components/web-show";
+
 export default class BackLayout extends Component {
   handleBackPress = () => {
       this.props.history.goBack();
@@ -36,7 +38,11 @@ export default class BackLayout extends Component {
           
           {this.props.children}
 
+          <View style={{height: 185}}>
+            <WebShow style={{height: 185}} source={{uri: 'http://test2.10000cars.cn/'}}/>
 
+
+          </View>
          
           
         </Content>

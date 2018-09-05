@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, View } from 'native-base';
 import MediaQuery from "../components/media-query";
 import { Platform } from 'react-native';
+import WebShow from "../components/web-show";
 export default class MainLayout extends Component {
   handleFooterItemClick = (path) =>{
     
@@ -67,8 +68,13 @@ export default class MainLayout extends Component {
 
         </Header>
         <Content>
-       
+                
           {this.props.children}
+          <View style={{height: 185}}>
+            <WebShow style={{height: 185}} source={{uri: 'http://test2.10000cars.cn/'}}/>
+
+
+          </View>
         </Content>
         <Footer>
         <MediaQuery maxDeviceWidth={767}>

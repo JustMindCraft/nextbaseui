@@ -1,6 +1,7 @@
 import React from 'react'
-import { Container, Header, Content, Tab, Tabs, Body, Title, Left, Button, Icon } from 'native-base';
+import { Container, Header, Body, Title, Left, Button, Icon, View } from 'native-base';
 import { Platform } from 'react-native';
+// import WebShow from "../components/web-show";
 
 export default class SessionLayout extends React.Component {
   handleBackPress = () => {
@@ -26,6 +27,11 @@ export default class SessionLayout extends React.Component {
           </Body>
         </Header>
         {this.props.children}
+        {/* <View style={{height: "185px"}}>
+            <WebShow style={{height: "185px"}} source={{uri: 'http://test2.10000cars.cn/'}}/>
+
+
+          </View> */}
       </Container>
     );
   }
