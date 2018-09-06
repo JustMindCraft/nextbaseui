@@ -76,6 +76,9 @@ export default class Login extends React.Component{
 
         return Cloud.requestSmsCode(mobile).then( (success) => {
             console.log(success);
+            if(success){
+                this.props.history.push('/my')
+            }
             
         },  (error) => {
             clearTimeout(this.timer);

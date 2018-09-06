@@ -70,11 +70,16 @@ export default class MainLayout extends Component {
         <Content>
                 
           {this.props.children}
-          <View style={{height: 185}}>
-            <WebShow style={{height: 185}} source={{uri: 'http://test2.10000cars.cn/'}}/>
+          {
+            Platform.OS !== 'web' && 
+            <View style={{height: 185}}>
+              <WebShow style={{height: 185}} source={{uri: 'http://test2.10000cars.cn/'}}/>
 
 
-          </View>
+            </View>
+
+          }
+          
         </Content>
         <Footer>
         <MediaQuery maxDeviceWidth={767}>
