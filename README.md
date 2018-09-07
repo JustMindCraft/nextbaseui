@@ -2,10 +2,11 @@
 
 ## 所用的技术
 
-* react 
+* react
 * react-native
 * react-native-web
 * nativebase
+* leancloud
 * react-router react-router-native
 * firebase
 * wilddog

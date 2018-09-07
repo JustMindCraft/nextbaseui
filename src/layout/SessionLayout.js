@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Body, Title, Left, Button, Icon, View } from 'native-base';
+import { Container, Header, Body, Title, Left, Button, Icon, View, Right } from 'native-base';
 import { Platform } from 'react-native';
 // import WebShow from "../components/web-show";
 
@@ -25,6 +25,7 @@ export default class SessionLayout extends React.Component {
         <Body>
             <Title>登录您的账户</Title>
           </Body>
+         
         </Header>
         {this.props.children}
         {/* <View style={{height: "185px"}}>

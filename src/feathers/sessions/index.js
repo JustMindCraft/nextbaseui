@@ -77,7 +77,7 @@ export default class Login extends React.Component{
         return Cloud.requestSmsCode(mobile).then( (success) => {
             console.log(success);
             if(success){
-                this.props.history.push('/my')
+                return this.props.history.push('/my')
             }
             
         },  (error) => {
@@ -223,21 +223,21 @@ export default class Login extends React.Component{
         return (
             
             <SessionLayout history={ this.props.history} match={this.props.match}>
-            <Tabs>
-                <Tab heading="手机登录">
-                    <Form style={{padding: "11%"}}>
-                    <Item stackedLabel>
+            <Tabs >
+                <Tab heading="手机登录" style={{alignItems: "center"}}>
+                    <Form style={{padding: "8%", maxWidth: 600, width: '100%'}}>
+                    <Item stackedLabel  onPress={e=>e.target.focus()}>
                     <Label>手机号</Label>
-                    <Input editable={!loading} keyboardType="email-address" textContentType="mobile" email={true}  placeholder='输入您的手机号' onChangeText={text => this.handleInputChange(text, 'mobile')}/>
+                    <Input   editable={!loading} keyboardType="email-address" textContentType="mobile"  placeholder='输入您的手机号' onChangeText={text => this.handleInputChange(text, 'mobile')}/>
                     </Item>
-                    <Item stackedLabel style={{display: "flex", flexDirection: "row"}}>
+                    <Item stackedLabel onPress={e=>e.target.focus()} style={{display: "flex", flexDirection: "row"}}>
                         
                         <Input editable={!loading} onChangeText={text => this.handleInputChange(text, 'sms')} textContentType="number"  placeholder='输入手机验证码' password={true} />
                         <Button danger disabled={smsBtnDisabled}  onPress={this.handleSendSMSBtn }>
                          <Text>{smsBtnText}</Text>
                         </Button>
                     </Item>
-                    <View style={{height: 110, display: 'flex', justifyContent: 'space-between'}}>
+                    <View style={{height: 110, display: 'flex', marginTop: 30, justifyContent: 'space-between'}}>
                     <Button disabled={loading} full danger onPress={this.handleSMSLogin}>
                         <Text>登录</Text>
                     </Button>
@@ -248,13 +248,13 @@ export default class Login extends React.Component{
                     
                     </Form>
                 </Tab>
-                <Tab heading="密码登录">
-                <Form style={{padding: "11%"}}>
-                    <Item stackedLabel>
+                <Tab heading="密码登录"  style={{alignItems: "center"}}>
+                <Form style={{padding: "8%", maxWidth: 600, width: '100%'}}>
+                    <Item onPress={e=>e.target.focus()} stackedLabel>
                     <Label>用户名</Label>
-                    <Input editable={!loading} keyboardType="email-address" textContentType="emailAddress" email={true}  placeholder='用户名/手机号' onChangeText={text => this.handleInputChange(text, 'email')}/>
+                    <Input  editable={!loading} keyboardType="email-address" textContentType="emailAddress" email={true}  placeholder='用户名/手机号' onChangeText={text => this.handleInputChange(text, 'email')}/>
                     </Item>
-                    <Item stackedLabel last>
+                    <Item onPress={e=>e.target.focus()} stackedLabel>
                         <Label>密码</Label>
                         <Input editable={!loading} onChangeText={text => this.handleInputChange(text, 'password')} textContentType="password" secureTextEntry={true} placeholder='输入您的密码' password={true} />
                     </Item>
