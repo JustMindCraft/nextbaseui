@@ -34,11 +34,11 @@ export default class MainLayout extends Component {
             </Button>
             <Button transparent onPress={()=>this.handleFooterItemClick("/contacts")} active={this.props.match.path === '/contacts'}>
                 <Icon name="contacts" />
-                <Text>联系人</Text>
+                <Text>分类</Text>
             </Button>
             <Button transparent onPress={()=>this.handleFooterItemClick("/appoints")} active={this.props.match.path === '/appoints'}>
                 <Icon name="star" />
-                <Text>预约</Text>
+                <Text>线下</Text>
             </Button>
            
             
@@ -88,13 +88,13 @@ export default class MainLayout extends Component {
                   <Icon name="home" />
                   <Text>首页</Text>
               </Button>
-              <Button vertical onPress={()=>this.handleFooterItemClick("/contacts")} active={this.props.match.path === '/contacts'}>
+              <Button vertical onPress={()=>this.handleFooterItemClick("/category")} active={this.props.match.path === '/category'}>
                   <Icon name="list-box" />
-                  <Text>联系人</Text>
+                  <Text>分类</Text>
               </Button>
-              <Button vertical onPress={()=>this.handleFooterItemClick("/appoints")} active={this.props.match.path === '/appoints'}>
+              <Button vertical onPress={()=>this.handleFooterItemClick("/offline")} active={this.props.match.path === '/offline'}>
                   <Icon name="infinite" />
-                  <Text>预约</Text>
+                  <Text>线下</Text>
               </Button>
             
               <Button vertical onPress={()=>this.handleFooterItemClick("/my")} active={this.props.match.path === '/my'}>

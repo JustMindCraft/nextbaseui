@@ -9,10 +9,11 @@ import NoMatch from "../feathers/others/NoMatch";
 import { Router, Switch, Route, Redirect } from "../cross-router";
 import RegNewUser from "../feathers/sessions/RegNewUser";
 import Contacts from "../feathers/home/Contacts";
-import Appointment from "../feathers/home/Appointment";
 import { Provider } from 'react-redux'
 import configureStore from "../redux/store";
 import { User } from '../service/leancloud';
+import Category from "../feathers/home/Category";
+import OffLine from "../feathers/home/OffLine";
 
 const store = configureStore();
 export default class HomeRoot extends React.Component{
@@ -122,7 +123,8 @@ export default class HomeRoot extends React.Component{
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route path="/contacts" component={Contacts}/>
-                    <Route path="/appoints" component={Appointment}/>
+                    <Route path="/category" component={Category}/>
+                    <Route path="/offLine" component={OffLine}/>
                     <PrivateRoute path="/my" component={Personal}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={RegNewUser}/>
