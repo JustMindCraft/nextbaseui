@@ -4,7 +4,7 @@ import { Root, Spinner, Text, Container, View } from "native-base";
 import { Platform } from 'react-native';
 import Home from "../feathers/home";
 import Personal from "../feathers/home/Personal";
-import Login from "../feathers/sessions";
+import Login from "../feathers/sessions/firebase/login";
 import NoMatch from "../feathers/others/NoMatch";
 import { Router, Switch, Route, Redirect } from "../cross-router";
 import RegNewUser from "../feathers/sessions/RegNewUser";
