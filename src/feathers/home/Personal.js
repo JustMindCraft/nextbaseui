@@ -1,39 +1,48 @@
 import React from 'react';
 import MainLayout from '../../layout/MainLayout';
 import {Card, CardItem, Text, Icon, Right, Thumbnail, Body, Left, Button } from 'native-base';
-import { User } from '../../service/leancloud';
 import SwipStatics from '../../components/Personal/SwipStatics';
+import firebase from '../../firebase/index'
 
 export default class Personal extends React.Component{
     constructor(props){
         super(props);
-        this.user = User;
+        this.ref = firebase;
+        this.state = {
+            user: {}
+        }
+        
+        
         
     }
 
-    async componentDidMount(){
-        await this.checkUserLogined();
-    }
-    
-    checkUserLogined = async () => {
-        let currentUser = await this.user.currentAsync();
-        if(!currentUser){
-            this.props.history.push('/login')
-        }else{
-            currentUser.isAuthenticated().then((authenticated) => {
-                console.log(authenticated);
-                if(!authenticated){
-                    this.props.history.push('/login')
-                }
-               
-            }).catch(err=>{
+    async checkUserLogin(){
+        return await this.ref.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({
+                    logined: true,
+                    user
+                })
+                
+              // User is signed in.
+            } else {
+                this.setState({
+                    logined: false,
+                })
                 this.props.history.push('/login')
                 
-            });
-        }
+              // No user is signed in.
+            }
+          });
     }
-    logout = () =>{
-        this.user.logOut();
+
+    async componentDidMount(){
+        await this.checkUserLogin();
+    }
+    
+    
+     logout =  async () =>{
+        await this.ref.auth().signOut();
         this.props.history.push('/login')
     }
     render(){

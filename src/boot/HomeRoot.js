@@ -11,9 +11,9 @@ import RegNewUser from "../feathers/sessions/RegNewUser";
 import Contacts from "../feathers/home/Contacts";
 import { Provider } from 'react-redux'
 import configureStore from "../redux/store";
-import { User } from '../service/leancloud';
 import Category from "../feathers/home/Category";
 import OffLine from "../feathers/home/OffLine";
+import firebase from '../firebase/index';
 
 const store = configureStore();
 export default class HomeRoot extends React.Component{
@@ -24,35 +24,43 @@ export default class HomeRoot extends React.Component{
             ready: false,
             currentUser: {},
         }
+        this.ref = firebase;
        
     }
-    checkUser = async () => {
-        try {
-            let currentUser = await User.currentAsync();
-        
-            if(currentUser){
-                currentUser.isAuthenticated().then((authenticated) => {
-                    console.log(authenticated);
-                    if(authenticated){
-                        this.setState({
-                            logined: true,
-                            ready: true,
-                        })
-                    }
+    async checkUserLogin(){
+            return this.ref.auth().onAuthStateChanged((user) => {
+                console.log(user);
                 
-                }).catch(err=>{
+                if (user) {
+                   
+                    this.setState({
+                        logined: true,
+                        ready: true,
+                    })
+    
+                    
+                  // User is signed in.
+                } else {
+                    
                     this.setState({
                         logined: false,
                         ready: true,
                     })
                     
-                });
+                  // No user is signed in.
+                }
+              });
+    }
+    checkUser = async () => {
+        try {
+            let currentUser = await this.checkUserLogin();
+            console.log(currentUser);
+            
+            if(currentUser){
+                
 
             }else{
-                this.setState({
-                    logined: false,
-                    ready: true,
-                })
+               
             }
             
         } catch (error) {
@@ -63,11 +71,12 @@ export default class HomeRoot extends React.Component{
 
     }
     async componentDidMount(){
+        
+        
+        await this.checkUserLogin();
         if(Platform.OS === 'web'){
             document.getElementById('root').firstChild.lastChild.style.display = 'none'
         }
-        
-        this.checkUser();
         
         
        
